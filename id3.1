@@ -1,0 +1,65 @@
+.TH ID3 1
+.\" NAME should be all caps, SECTION should be 1-8, maybe w/ subsection
+.\" other parms are allowed: see man(7), man(1)
+.SH NAME
+id3 \- an ID3 tag editor.
+.SH SYNOPSIS
+.B id3
+.I [\-tTaAycg newdata] file1 [file2 [file3...]]
+.br
+.B id3
+.I -l file1 [file2 [file3...]]
+.br
+.B id3
+.I -d file1 [file2 [file3...]]
+.br
+.B id3
+.I -L
+.SH "DESCRIPTION"
+id3 is an ID3 v1.1 tag editor. ID3 tags are traditionally put at the end of
+compressed streamed audio files to denote information about the audio
+contents. Up to thirty characters of Title, Artist, and Album information
+can be stored, as well as a 28-character comment, four-digit year, track
+number up to 255, and an enumerated genre.
+.SH OPTIONS
+.TP
+.B \-t title
+Sets the title tag to the first 28 characters of \fItitle\fR.
+.TP
+.B \-T track
+Sets the track tag to a number between 0 and 255.
+.TP
+.B \-a artist
+Sets the artist tag to the first 28 characters of \fIartist\fR.
+.TP
+.B \-A album
+Sets the album tag to the first 28 characters of \fIalbum\fR.
+.TP
+.B \-y year
+Sets the year tag to the first 4 characters of \fIyear\fR.
+.TP
+.B \-c comment
+Sets the comment tag to the first 28 characters of \fIcomment\fR.
+.TP
+.B \-g genre
+Sets the genre number tag using a genre number or predefined genre label.
+.TP
+.B \-l
+List/view the ID3 tag.
+.TP
+.B \-L
+List all genre tags.
+.TP
+.B \-R
+Use rfc822-style output for tag printout.
+.TP
+.B \-d
+Delete the ID3 tag.
+.SH BUGS
+The ID3 format has some shortcomings. There is a 1 in 16777216 chance of
+your mp3 having a certain bit-pattern, causing id3 to write over the last
+128 bytes of your mp3 upon tag creation. If you add a track number to an
+ID3 v1.0 tag, the last two characters of the comment string will be
+truncated. Any bugs found in
+.B id3
+should be forwarded to the author, Robert Woodcock <rcw@debian.org>.

@@ -1,0 +1,37 @@
+ID3 0.7
+=======
+id3 is a music stream tagging program that follows the
+ID3 specification. It lets you store the following info in a tag:
+
+* 30 character Artist name
+* 30 character Album name
+* 30 character Title name
+*  4 character Year
+* 30 character comment
+*   enumerated Genre
+
+id3 uses command-line options to specify this data:
+
+ -t	Title
+ -a	Artist
+ -A	Album
+ -y	Year
+ -c	Comment
+ -g	Genre
+
+Anything that is not a command-line option is taken as a filename. Thus, you
+can tag an entire directory with Artist, Album, Year, and Genre information
+like so:
+
+id3 -a "Crash Test Dummies" -A "God Shuffled His Feet" -y 1993 -g Pop *
+
+If an entry contains no whitespace, you won't need to quote it - that's only
+so your shell gets things right.
+
+Unused data in fields are padded with spaces.
+
+If you wish to use id3 as part of a system of scripts you may wish to use
+the -R option which causes id3 to print out all changes and listings in an
+rfc822-style format (like mail headers).
+
+id3 -L will print out a list of all genres.
